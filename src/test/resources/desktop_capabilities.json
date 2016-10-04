@@ -4,7 +4,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 7 Chrome 49",
         "name": "Windows 7 Firefox 49",
         "platform": "Windows 7",
         "version": "49.0"
@@ -12,7 +11,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 7 Chrome 51",
         "name": "Windows 7 Firefox 51",
         "platform": "Windows 7",
         "version": "51.0"
@@ -20,7 +18,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 7 Chrome 52",
         "name": "Windows 7 Firefox 52",
         "platform": "Windows 7",
         "version": "52.0"
@@ -28,7 +25,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 8.1 Chrome 49",
         "name": "Windows 8.1 Firefox 49",
         "platform": "Windows 8.1",
         "version": "49.0"
@@ -36,7 +32,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 8.1 Chrome 52",
         "name": "Windows 8.1 Firefox 52",
         "platform": "Windows 8.1",
         "version": "52.0"
@@ -44,7 +39,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 8.1 Chrome 51",
         "name": "Windows 8.1 Firefox 51",
         "platform": "Windows 8.1",
         "version": "51.0"
@@ -52,7 +46,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 10 Chrome 49",
         "name": "Windows 10 Firefox 49",
         "platform": "Windows 10",
         "version": "49.0"
@@ -60,7 +53,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 10 Chrome 52",
         "name": "Windows 10 Firefox 52",
         "platform": "Windows 10",
         "version": "52.0"
@@ -68,7 +60,6 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "deviceName": "Windows 10 Chrome 51",
         "name": "Windows 10 Firefox 51",
         "platform": "Windows 10",
         "version": "51.0"
@@ -76,7 +67,6 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "deviceName": "Windows 7 Firefox 47",
         "name": "Windows 7 Firefox 47",
         "platform": "Windows 7",
         "version": "47.0"
@@ -84,7 +74,6 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "deviceName": "Windows 7 Firefox 48",
         "name": "Windows 7 Firefox 48",
         "platform": "Windows 7",
         "version": "48.0"
@@ -92,7 +81,6 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "deviceName": "Windows 8.1 Firefox 47",
         "name": "Windows 8.1 Firefox 47",
         "platform": "Windows 8.1",
         "version": "47.0"
@@ -100,7 +88,6 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "deviceName": "Windows 8.1 Firefox 48",
         "name": "Windows 8.1 Firefox 48",
         "platform": "Windows 8.1",
         "version": "48.0"
@@ -108,7 +95,6 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "deviceName": "Windows 10 Firefox 47",
         "name": "Windows 10 Firefox 47",
         "platform": "Windows 10",
         "version": "47.0"
@@ -116,7 +102,6 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "deviceName": "Windows 10 Firefox 48",
         "name": "Windows 10 Firefox 48",
         "platform": "Windows 10",
         "version": "48.0"
@@ -124,7 +109,6 @@
       {
         "capability": "safari",
         "browserName": "safari",
-        "deviceName": "OS X 10.11 Safari 9.0",
         "name": "OS X 10.11 Safari 9.0",
         "platform": "OS X 10.11",
         "version": "9.0"
@@ -132,7 +116,6 @@
       {
         "capability": "internetExplorer",
         "browserName": "internetExplorer",
-        "deviceName": "Windows 8.1 IE 11",
         "name": "Windows 8.1 IE 11",
         "platform": "Windows 8.1",
         "version": "11.0"
@@ -140,7 +123,6 @@
       {
         "capability": "edge",
         "browserName": "edge",
-        "deviceName": "Windows 10 Edge 13.10586",
         "name": "Windows 10 Edge 13.10586",
         "platform": "Windows 10",
         "version": "13.10586"
