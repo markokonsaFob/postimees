@@ -1,0 +1,36 @@
+{
+  "set": {
+    "browser": [
+      {
+        "capability": "iphone",
+        "appiumVersion": "1.5.3",
+        "deviceName": "iPhone 6s Simulator",
+        "deviceOrientation": "portrait",
+        "platformVersion": "9.3",
+        "platformName": "iOS",
+        "browserName": "Safari",
+        "name": "iPhone 6s iOS 9.3 Safari"
+      },
+      {
+        "capability": "ipad",
+        "appiumVersion": "1.5.3",
+        "deviceName": "iPad Retina Simulator",
+        "deviceOrientation": "portrait",
+        "platformVersion": "9.3",
+        "platformName": "iOS",
+        "browserName": "Safari",
+        "name": "iPad Retina iOS 9.3 Safari"
+      },
+      {
+        "capability": "android",
+        "appiumVersion": "1.5.3",
+        "deviceName": "Android Emulator",
+        "deviceOrientation": "portrait",
+        "platformVersion": "5.1",
+        "platformName": "Android",
+        "browserName": "Browser",
+        "name": "Android emulator 5.1 Browser"
+      }
+    ]
+  }
+}
