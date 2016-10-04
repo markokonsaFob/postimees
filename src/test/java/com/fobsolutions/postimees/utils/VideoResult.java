@@ -1,24 +1,17 @@
 package com.fobsolutions.postimees.utils;
 
-import io.cify.framework.core.models.Device;
+import io.cify.framework.core.Device;
 
 /**
  * Created by FOB Solutions
  */
 public class VideoResult {
 
-    public enum Result {
-        SUCCESS,
-        FAIL
-    }
-
     private Result result;
     private String message;
     private String url;
     private String type;
     private Device device;
-
-
     public VideoResult(String url, boolean condition, String message, String type, Device device) {
 
         if (condition) {
@@ -39,13 +32,18 @@ public class VideoResult {
     @Override
     public String toString() {
         if (result == Result.FAIL) {
-            return "result: " + result + ", message: " + message + ", url:" + url + ", videotype: " + type + deviceToString();
+            return "result: " + result + ", message: " + message + ", url:" + url + ", videotype: " + type + System.lineSeparator() + deviceToString();
         } else {
-            return "result: " + result + ", url:" + url + ", videotype: " + type + deviceToString();
+            return "result: " + result + ", url:" + url + ", videotype: " + type + System.lineSeparator() + deviceToString();
         }
     }
 
     private String deviceToString() {
         return " device: [" + device.getCapabilities().toString() + "]";
+    }
+
+    public enum Result {
+        SUCCESS,
+        FAIL
     }
 }

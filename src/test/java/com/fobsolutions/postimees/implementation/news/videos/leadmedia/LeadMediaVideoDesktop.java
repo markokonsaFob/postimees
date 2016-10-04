@@ -1,7 +1,7 @@
 package com.fobsolutions.postimees.implementation.news.videos.leadmedia;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
-import io.cify.framework.core.models.Device;
+import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;

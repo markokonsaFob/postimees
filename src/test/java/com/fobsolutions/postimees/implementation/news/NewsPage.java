@@ -13,7 +13,7 @@ import com.fobsolutions.postimees.utils.Constants;
 import com.fobsolutions.postimees.utils.TestData;
 import com.fobsolutions.postimees.utils.VideoResult;
 import io.cify.framework.PageObjects;
-import io.cify.framework.core.models.Device;
+import io.cify.framework.core.Device;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.TimeoutException;

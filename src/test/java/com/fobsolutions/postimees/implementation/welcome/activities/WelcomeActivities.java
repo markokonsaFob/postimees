@@ -1,7 +1,7 @@
 package com.fobsolutions.postimees.implementation.welcome.activities;
 
 import com.fobsolutions.postimees.implementation.welcome.WelcomePage;
-import io.cify.framework.core.models.Device;
+import io.cify.framework.core.Device;
 import org.openqa.selenium.NoSuchElementException;
 
 /**

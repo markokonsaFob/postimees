@@ -3,7 +3,7 @@ package com.fobsolutions.postimees.implementation;
 import com.fobsolutions.postimees.implementation.home.activities.IHomeActivities;
 import com.fobsolutions.postimees.implementation.welcome.activities.IWelcomeActivities;
 import io.cify.framework.Factory;
-import io.cify.framework.core.models.Device;
+import io.cify.framework.core.Device;
 
 /**
  * Created by FOB Solutions

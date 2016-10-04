@@ -1,11 +1,11 @@
 package com.fobsolutions.postimees.steps;
 
-import com.fobsolutions.postimees.utils.TestData;
 import com.fobsolutions.postimees.implementation.ActivitiesImpl;
+import com.fobsolutions.postimees.utils.TestData;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.cify.framework.core.Device;
 import io.cify.framework.core.DeviceManager;
-import io.cify.framework.core.models.Device;
 
 import static org.junit.Assert.assertTrue;
 
@@ -16,7 +16,7 @@ public class HomeSteps {
 
     @When("^user collects (\\d+) first articles")
     public void userCollectsFirstVideos(int nth) {
-        Device device = DeviceManager.getActiveDevice();
+        Device device = DeviceManager.getInstance().getActiveDevice();
         ActivitiesImpl.getHomeActivities(device).collectArticles(nth);
     }
 

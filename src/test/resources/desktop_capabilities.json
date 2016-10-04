@@ -1,0 +1,96 @@
+{
+  "set": {
+    "browser": [
+      {
+        "capability": "chrome",
+        "platform": "Windows 7",
+        "version": "49.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 7",
+        "version": "51.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 7",
+        "version": "52.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 8.1",
+        "version": "49.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 8.1",
+        "version": "52.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 8.1",
+        "version": "51.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 10",
+        "version": "49.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 10",
+        "version": "52.0"
+      },
+      {
+        "capability": "chrome",
+        "platform": "Windows 10",
+        "version": "51.0"
+      },
+      {
+        "capability": "firefox",
+        "platform": "Windows 7",
+        "version": "47.0"
+      },
+      {
+        "capability": "firefox",
+        "platform": "Windows 7",
+        "version": "48.0"
+      },
+      {
+        "capability": "firefox",
+        "platform": "Windows 8.1",
+        "version": "47.0"
+      },
+      {
+        "capability": "firefox",
+        "platform": "Windows 8.1",
+        "version": "48.0"
+      },
+      {
+        "capability": "firefox",
+        "platform": "Windows 10",
+        "version": "47.0"
+      },
+      {
+        "capability": "firefox",
+        "platform": "Windows 10",
+        "version": "48.0"
+      },
+      {
+        "capability": "safari",
+        "platform": "OS X 10.11",
+        "version": "9.0"
+      },
+      {
+        "capability": "internetExplorer",
+        "platform": "Windows 8.1",
+        "version": "11.0"
+      },
+      {
+        "capability": "edge",
+        "platform": "Windows 10",
+        "version": "13.10586"
+      }
+    ]
+  }
+}

@@ -7,8 +7,9 @@ import com.fobsolutions.postimees.utils.VideoResult;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import io.cify.framework.core.Device;
+import io.cify.framework.core.DeviceCategory;
 import io.cify.framework.core.DeviceManager;
-import io.cify.framework.core.models.Device;
 
 /**
  * Created by FOB Solutions
@@ -17,9 +18,9 @@ public class CommonSteps {
 
     @Given("^user opens postimees main page$")
     public void userOpensPostimeesMainPage() {
-        Device device = DeviceManager.createDevice();
-        if (device.getCapabilityByName("url") != null) {
-            device.openBrowser(device.getCapabilityByName("url"));
+        Device device = DeviceManager.getInstance().createDevice(DeviceCategory.BROWSER);
+        if (device.getCapabilities().getCapability("url") != null) {
+            device.openBrowser(device.getCapabilities().getCapability("url").toString());
         } else {
             device.openBrowser(TestData.BASE_URL);
         }
@@ -34,8 +35,11 @@ public class CommonSteps {
     public void allFoundVideosShouldHaveCorrectVideos() {
         System.out.println(Constants.ANSI_GREEN + "---------------RESULTS---------------" + Constants.ANSI_GREEN);
         System.lineSeparator();
+        System.out.println(Constants.ANSI_BLACK + "-------------------------------------" + Constants.ANSI_BLACK);
         System.out.println(Constants.ANSI_GREEN + "Found " + TestData.getTotalWithVideos() + " articles with videos" + Constants.ANSI_GREEN);
         System.lineSeparator();
+        System.out.println(Constants.ANSI_BLACK + "-------------------------------------" + Constants.ANSI_BLACK);
+
 
         TestData.getVideoResults().stream().filter(result -> result.getResult() == VideoResult.Result.FAIL).forEach(result -> {
             throw new AssertionError("All videos should be valid and playable");
@@ -51,7 +55,8 @@ public class CommonSteps {
                 System.out.println(Constants.ANSI_GREEN + result.toString() + Constants.ANSI_GREEN);
             }
             System.lineSeparator();
+            System.out.println(Constants.ANSI_BLACK + "-------------------------------------" + Constants.ANSI_BLACK);
         }
-        DeviceManager.quitDevices();
+        DeviceManager.getInstance().quitAllDevices();
     }
 }

@@ -3,7 +3,7 @@ package com.fobsolutions.postimees.implementation.home.activities;
 import com.fobsolutions.postimees.implementation.home.HomePage;
 import com.fobsolutions.postimees.utils.Constants;
 import com.fobsolutions.postimees.utils.TestData;
-import io.cify.framework.core.models.Device;
+import io.cify.framework.core.Device;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
