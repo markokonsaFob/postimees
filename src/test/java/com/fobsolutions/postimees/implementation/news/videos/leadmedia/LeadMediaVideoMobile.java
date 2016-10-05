@@ -4,7 +4,7 @@ import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -86,7 +86,7 @@ public class LeadMediaVideoMobile implements VideoComponent {
             leadMedia.click();
             waitForVideoContainer(device, jwPlayer, 30);
             return device.getDriver().findElement(jwPlayer);
-        } catch (NoSuchElementException ignored) {
+        } catch (WebDriverException ignored) {
             return null;
         }
     }

@@ -12,6 +12,7 @@ public class VideoResult {
     private String url;
     private String type;
     private Device device;
+
     public VideoResult(String url, boolean condition, String message, String type, Device device) {
 
         if (condition) {

@@ -115,14 +115,14 @@
       },
       {
         "capability": "internetExplorer",
-        "browserName": "internetExplorer",
+        "browserName": "internet explorer",
         "name": "Windows 8.1 IE 11",
         "platform": "Windows 8.1",
         "version": "11.0"
       },
       {
         "capability": "edge",
-        "browserName": "edge",
+        "browserName": "MicrosoftEdge",
         "name": "Windows 10 Edge 13.10586",
         "platform": "Windows 10",
         "version": "13.10586"
