@@ -1,5 +1,6 @@
 package com.fobsolutions.postimees.steps;
 
+import com.fobsolutions.postimees.implementation.ActivitiesImpl;
 import com.fobsolutions.postimees.implementation.news.NewsPage;
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
 import com.fobsolutions.postimees.utils.TestData;
@@ -27,6 +28,10 @@ public class NewsSteps {
     public void userOpensArticleWithUrl(String url) {
         Device device = DeviceManager.getInstance().createDevice(DeviceCategory.BROWSER);
         device.openBrowser(url);
+
+        if (ActivitiesImpl.getWelcomeScreenActivities(device).isWelcomeScreenVisible()) {
+            ActivitiesImpl.getWelcomeScreenActivities(device).clickWelcome();
+        }
     }
 
     @Then("^video should be visible$")

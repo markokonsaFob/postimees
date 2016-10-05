@@ -106,8 +106,10 @@ public class NewsPage extends PageObjects {
             component.play();
             System.out.println(Constants.ANSI_GREEN + "Video started correctly" + Constants.ANSI_GREEN);
             return true;
-        } catch (TimeoutException ignored) {
+        } catch (TimeoutException e) {
             System.out.println(Constants.ANSI_RED + "Video did not start" + Constants.ANSI_RED);
+            System.lineSeparator();
+            System.out.println(Constants.ANSI_RED + e.getMessage() + Constants.ANSI_RED);
             return false;
         }
     }

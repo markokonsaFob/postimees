@@ -21,7 +21,7 @@ public class LeadMediaVideoMobile implements VideoComponent {
     @FindBy(className = "video-wrapper")
     private WebElement leadMedia;
 
-    private By jwPlayer = By.className("jwplayer");
+    private By jwPlayer = By.id("video-element");
 
     private Device device;
 
@@ -71,7 +71,10 @@ public class LeadMediaVideoMobile implements VideoComponent {
     @Override
     public void play() {
         if (getPlayer() != null) {
-            device.getDriver().findElement(jwPlayer).sendKeys(Keys.ENTER);
+            try {
+                device.getDriver().findElement(jwPlayer).sendKeys(Keys.ENTER);
+            } catch (Exception ignored) {
+            }
             waitForStateToBe(this, device, VideoState.PLAYING, 30);
         }
     }
@@ -84,7 +87,7 @@ public class LeadMediaVideoMobile implements VideoComponent {
         try {
             device.getDriver().switchTo().defaultContent();
             leadMedia.click();
-            waitForVideoContainer(device, jwPlayer, 30);
+            waitForVideoContainer(device, By.className("video-container"), 10);
             return device.getDriver().findElement(jwPlayer);
         } catch (WebDriverException ignored) {
             return null;

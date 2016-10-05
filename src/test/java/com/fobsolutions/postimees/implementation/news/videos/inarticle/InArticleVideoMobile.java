@@ -23,7 +23,7 @@ public class InArticleVideoMobile implements VideoComponent {
     @FindBy(className = "article-video-wrapper")
     private WebElement videoWrapper;
 
-    private By jwPlayer = By.className("jwplayer");
+    private By jwPlayer = By.id("video-element");
 
     private Device device;
 
@@ -84,7 +84,7 @@ public class InArticleVideoMobile implements VideoComponent {
         try {
             device.getDriver().switchTo().defaultContent();
             videoWrapper.click();
-            waitForVideoContainer(device, jwPlayer, 30);
+            waitForVideoContainer(device, jwPlayer, 10);
             return device.getDriver().findElement(jwPlayer);
         } catch (NoSuchElementException ignored) {
             return null;

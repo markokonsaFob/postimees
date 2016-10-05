@@ -48,6 +48,7 @@ public class CommonSteps {
 
     @After
     public void closeDrivers() {
+        DeviceManager.getInstance().quitAllDevices();
         for (VideoResult result : TestData.getVideoResults()) {
             if (result.getResult() == VideoResult.Result.FAIL) {
                 System.out.println(Constants.ANSI_RED + result.toString() + Constants.ANSI_RED);
@@ -57,6 +58,5 @@ public class CommonSteps {
             System.lineSeparator();
             System.out.println(Constants.ANSI_BLACK + "-------------------------------------" + Constants.ANSI_BLACK);
         }
-        DeviceManager.getInstance().quitAllDevices();
     }
 }

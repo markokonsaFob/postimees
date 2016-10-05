@@ -6,14 +6,8 @@
         "remote": "http://0.0.0.0:4723/wd/hub",
         "platform": "Android",
         "browserName": "chrome",
-        "version": "5.1",
+        "version": "5.1.1",
         "deviceName": "Android"
-      },
-      {
-        "capability": "chrome",
-        "browserName": "chrome",
-        "platform": "ANY",
-        "version": ""
       }
     ]
   }
