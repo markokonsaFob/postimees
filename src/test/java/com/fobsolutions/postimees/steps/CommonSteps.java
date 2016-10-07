@@ -25,6 +25,7 @@ public class CommonSteps {
             device.openBrowser(TestData.BASE_URL);
         }
         TestData.BASE_URL = device.getDriver().getCurrentUrl();
+        TestData.setAppLocation(device);
 
         if (ActivitiesImpl.getWelcomeScreenActivities(device).isWelcomeScreenVisible()) {
             ActivitiesImpl.getWelcomeScreenActivities(device).clickWelcome();

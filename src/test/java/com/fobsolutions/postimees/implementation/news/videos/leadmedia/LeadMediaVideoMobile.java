@@ -1,9 +1,9 @@
 package com.fobsolutions.postimees.implementation.news.videos.leadmedia;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
+import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import static com.fobsolutions.postimees.implementation.news.videos.VideoUtil.waitForStateToBe;
 import static com.fobsolutions.postimees.implementation.news.videos.VideoUtil.waitForVideoContainer;
+import static com.fobsolutions.postimees.utils.BrowserActions.click;
 
 /**
  * Created by FOB Solutions
@@ -70,9 +71,14 @@ public class LeadMediaVideoMobile implements VideoComponent {
      */
     @Override
     public void play() {
+
         if (getPlayer() != null) {
             try {
-                device.getDriver().findElement(jwPlayer).sendKeys(Keys.ENTER);
+                if (device.getDriver() instanceof IOSDriver) {
+                    click(device, device.getDriver().findElement(jwPlayer));
+                } else {
+                    device.getDriver().findElement(jwPlayer).click();
+                }
             } catch (Exception ignored) {
             }
             waitForStateToBe(this, device, VideoState.PLAYING, 30);
@@ -86,7 +92,7 @@ public class LeadMediaVideoMobile implements VideoComponent {
     public WebElement getPlayer() {
         try {
             device.getDriver().switchTo().defaultContent();
-            leadMedia.click();
+            click(device, leadMedia);
             waitForVideoContainer(device, By.className("video-container"), 10);
             return device.getDriver().findElement(jwPlayer);
         } catch (WebDriverException ignored) {

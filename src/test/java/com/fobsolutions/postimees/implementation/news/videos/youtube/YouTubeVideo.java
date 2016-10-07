@@ -1,6 +1,8 @@
 package com.fobsolutions.postimees.implementation.news.videos.youtube;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
+import com.fobsolutions.postimees.utils.BrowserActions;
+import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -61,7 +63,11 @@ public class YouTubeVideo implements VideoComponent {
      */
     @Override
     public void play() {
-        getPlayer().click();
+        if (device.getDriver() instanceof IOSDriver) {
+            BrowserActions.click(device, getPlayer());
+        } else {
+            getPlayer().click();
+        }
         waitForStateToBe(this, device, VideoState.PLAYING, 30);
     }
 
@@ -71,9 +77,14 @@ public class YouTubeVideo implements VideoComponent {
     @Override
     public WebElement getPlayer() {
         try {
-            device.getDriver().switchTo().defaultContent();
-            device.getDriver().switchTo().frame(getFrame());
-            return device.getDriver().findElement(player);
+            if (getPlayerElement() == null) {
+                if (device.getDriver() instanceof IOSDriver) {
+                    device.getDriver().get(getFrame().getAttribute("src"));
+                } else {
+                    device.getDriver().switchTo().frame(getFrame());
+                }
+            }
+            return getPlayerElement();
         } catch (NoSuchElementException ignored) {
             return null;
         }
@@ -83,6 +94,18 @@ public class YouTubeVideo implements VideoComponent {
      * Get youtube frame
      */
     private WebElement getFrame() {
+        device.getDriver().switchTo().defaultContent();
         return device.getDriver().findElement(By.xpath("//iframe[starts-with(@src, 'http://www.youtube.com/embed')]"));
+    }
+
+    /**
+     * Returns player web element
+     */
+    private WebElement getPlayerElement() {
+        try {
+            return device.getDriver().findElement(player);
+        } catch (NoSuchElementException ignored) {
+            return null;
+        }
     }
 }

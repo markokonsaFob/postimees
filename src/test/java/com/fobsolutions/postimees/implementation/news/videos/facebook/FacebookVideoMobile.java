@@ -1,6 +1,8 @@
 package com.fobsolutions.postimees.implementation.news.videos.facebook;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
+import com.fobsolutions.postimees.utils.BrowserActions;
+import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -37,8 +39,6 @@ public class FacebookVideoMobile implements VideoComponent {
      */
     @Override
     public VideoState getState() {
-        device.getDriver().switchTo().defaultContent();
-        device.getDriver().switchTo().frame(getFrame());
         boolean playing = Integer.valueOf(device.getDriver().findElement(video).getAttribute("width")) > 0;
 
         if (playing) {
@@ -54,8 +54,14 @@ public class FacebookVideoMobile implements VideoComponent {
     @Override
     public void play() {
         try {
-            device.getDriver().findElement(root).findElement(playBtnMobile).click();
-            device.getDriver().findElement(video).click();
+            if (device.getDriver() instanceof IOSDriver) {
+
+                BrowserActions.click(device, device.getDriver().findElement(root).findElement(playBtnMobile));
+                BrowserActions.click(device, device.getDriver().findElement(video));
+            } else {
+                device.getDriver().findElement(root).findElement(playBtnMobile).click();
+                device.getDriver().findElement(video).click();
+            }
         } catch (Exception ignored) {
         }
         waitForStateToBe(this, device, VideoState.PLAYING, 30);
@@ -67,8 +73,14 @@ public class FacebookVideoMobile implements VideoComponent {
     @Override
     public WebElement getPlayer() {
         try {
-            device.getDriver().switchTo().defaultContent();
-            device.getDriver().switchTo().frame(getFrame());
+            if (getPlayerElement() == null) {
+                if (device.getDriver() instanceof IOSDriver) {
+                    device.getDriver().get(getFrame().getAttribute("src"));
+                } else {
+                    device.getDriver().switchTo().defaultContent();
+                    device.getDriver().switchTo().frame(getFrame());
+                }
+            }
             return device.getDriver().findElement(root);
         } catch (NoSuchElementException ignored) {
             return null;
@@ -79,6 +91,18 @@ public class FacebookVideoMobile implements VideoComponent {
      * Gets frame
      */
     private WebElement getFrame() {
+        device.getDriver().switchTo().defaultContent();
         return device.getDriver().findElement(iframeWidget).findElement(iframe);
+    }
+
+    /**
+     * Returns player element
+     */
+    private WebElement getPlayerElement() {
+        try {
+            return device.getDriver().findElement(root);
+        } catch (Exception ignored) {
+            return null;
+        }
     }
 }

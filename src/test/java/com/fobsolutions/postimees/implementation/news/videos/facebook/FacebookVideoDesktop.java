@@ -1,9 +1,10 @@
 package com.fobsolutions.postimees.implementation.news.videos.facebook;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
+import com.fobsolutions.postimees.utils.BrowserActions;
+import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import static com.fobsolutions.postimees.implementation.news.videos.VideoUtil.waitForStateToBe;
@@ -54,7 +55,12 @@ public class FacebookVideoDesktop implements VideoComponent {
     @Override
     public void play() {
         try {
-            device.getDriver().findElement(playBtn).click();
+            if (device.getDriver() instanceof IOSDriver) {
+                BrowserActions.scrollToElement(device, device.getDriver().findElement(playBtn));
+                BrowserActions.click(device, device.getDriver().findElement(playBtn));
+            } else {
+                device.getDriver().findElement(playBtn).click();
+            }
         } catch (Exception ignored) {
         }
         waitForStateToBe(this, device, VideoState.PLAYING, 30);
@@ -69,7 +75,7 @@ public class FacebookVideoDesktop implements VideoComponent {
             device.getDriver().switchTo().defaultContent();
             device.getDriver().switchTo().frame(getFrame());
             return device.getDriver().findElement(facebook).findElement(video);
-        } catch (NoSuchElementException ignored) {
+        } catch (Exception ignored) {
             return null;
         }
     }

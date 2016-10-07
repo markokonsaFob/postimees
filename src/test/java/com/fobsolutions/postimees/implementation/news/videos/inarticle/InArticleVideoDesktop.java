@@ -1,6 +1,8 @@
 package com.fobsolutions.postimees.implementation.news.videos.inarticle;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
+import com.fobsolutions.postimees.utils.BrowserActions;
+import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -70,7 +72,12 @@ public class InArticleVideoDesktop implements VideoComponent {
     @Override
     public void play() {
         if (getPlayer() != null) {
-            getPlayer().sendKeys(Keys.ENTER);
+            if (device.getDriver() instanceof IOSDriver) {
+                BrowserActions.scrollToElement(device, getPlayer());
+                BrowserActions.click(device, getPlayer());
+            } else {
+                getPlayer().sendKeys(Keys.ENTER);
+            }
             waitForStateToBe(this, device, VideoState.PLAYING, 30);
         }
     }

@@ -49,7 +49,7 @@ public class VideoUtil {
                 }
             });
         } catch (TimeoutException ignored) {
-            System.out.println("Video container should be open within " + timeOut + " seconds on mobile devices");
+            throw new NoSuchElementException("Video container should be open within " + timeOut + " seconds on mobile devices");
         }
     }
 

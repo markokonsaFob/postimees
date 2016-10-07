@@ -8,6 +8,22 @@
         "browserName": "chrome",
         "version": "5.1.1",
         "deviceName": "Android"
+      },
+      {
+        "capability": "iphone",
+        "remote": "http://0.0.0.0:4723/wd/hub",
+        "platform": "MAC",
+        "browserName": "safari",
+        "version": "9.3",
+        "deviceName": "iPhone 6"
+      },
+      {
+        "capability": "ipad",
+        "remote": "http://0.0.0.0:4723/wd/hub",
+        "platform": "MAC",
+        "browserName": "safari",
+        "version": "9.3",
+        "deviceName": "iPad 2"
       }
     ]
   }

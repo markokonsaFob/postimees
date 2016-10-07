@@ -1,6 +1,7 @@
 package com.fobsolutions.postimees.implementation.news.videos.inarticle;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
+import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import static com.fobsolutions.postimees.implementation.news.videos.VideoUtil.waitForStateToBe;
 import static com.fobsolutions.postimees.implementation.news.videos.VideoUtil.waitForVideoContainer;
+import static com.fobsolutions.postimees.utils.BrowserActions.click;
 
 /**
  * Created by FOB Solutions
@@ -70,7 +72,11 @@ public class InArticleVideoMobile implements VideoComponent {
     @Override
     public void play() {
         try {
-            getPlayer().sendKeys(Keys.ENTER);
+            if (device.getDriver() instanceof IOSDriver) {
+                click(device, getPlayer());
+            } else {
+                getPlayer().sendKeys(Keys.ENTER);
+            }
         } catch (Exception ignored) {
         }
         waitForStateToBe(this, device, VideoState.PLAYING, 30);
@@ -83,7 +89,7 @@ public class InArticleVideoMobile implements VideoComponent {
     public WebElement getPlayer() {
         try {
             device.getDriver().switchTo().defaultContent();
-            videoWrapper.click();
+            click(device, videoWrapper);
             waitForVideoContainer(device, jwPlayer, 10);
             return device.getDriver().findElement(jwPlayer);
         } catch (NoSuchElementException ignored) {

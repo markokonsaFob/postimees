@@ -1,6 +1,8 @@
 package com.fobsolutions.postimees.implementation.news.videos.instagram;
 
 import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
+import com.fobsolutions.postimees.utils.BrowserActions;
+import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -14,6 +16,7 @@ import static com.fobsolutions.postimees.implementation.news.videos.VideoUtil.wa
 public class InstagramVideo implements VideoComponent {
 
     private By videoContainer = By.className("EmbedVideo");
+    private By instagramMedia = By.className("instagram-media");
     private Device device;
 
     public InstagramVideo(Device device) {
@@ -25,8 +28,6 @@ public class InstagramVideo implements VideoComponent {
      */
     @Override
     public boolean haveVideo() {
-        device.getDriver().switchTo().defaultContent();
-        switchToInstagram();
         return getPlayer() != null;
     }
 
@@ -52,7 +53,11 @@ public class InstagramVideo implements VideoComponent {
     @Override
     public void play() {
         if (getPlayer() != null) {
-            getPlayer().click();
+            if (device.getDriver() instanceof IOSDriver) {
+                BrowserActions.click(device, getPlayer());
+            } else {
+                getPlayer().click();
+            }
             waitForStateToBe(this, device, VideoState.PLAYING, 30);
         }
     }
@@ -63,7 +68,15 @@ public class InstagramVideo implements VideoComponent {
     @Override
     public WebElement getPlayer() {
         try {
-            return device.getDriver().findElement(videoContainer);
+            if (getPlayerElement() == null) {
+                device.getDriver().switchTo().defaultContent();
+                if (device.getDriver() instanceof IOSDriver) {
+                    device.getDriver().get(device.getDriver().findElement(instagramMedia).getAttribute("src"));
+                } else {
+                    switchToInstagram();
+                }
+            }
+            return getPlayerElement();
         } catch (NoSuchElementException ignored) {
             return null;
         }
@@ -76,6 +89,17 @@ public class InstagramVideo implements VideoComponent {
         try {
             device.getDriver().switchTo().frame("instagram-embed-0");
         } catch (Exception ignored) {
+        }
+    }
+
+    /**
+     * Returns player element
+     */
+    private WebElement getPlayerElement() {
+        try {
+            return device.getDriver().findElement(videoContainer);
+        } catch (NoSuchElementException ignored) {
+            return null;
         }
     }
 }

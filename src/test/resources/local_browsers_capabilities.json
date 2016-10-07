@@ -1,0 +1,12 @@
+{
+  "set": {
+    "browser": [
+      {
+        "capability": "chrome",
+        "browserName": "chrome",
+        "version": "",
+        "platform": "ANY"
+      }
+    ]
+  }
+}

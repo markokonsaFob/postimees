@@ -1,5 +1,10 @@
 package com.fobsolutions.postimees.utils;
 
+import io.appium.java_client.ios.IOSDriver;
+import io.cify.framework.core.Device;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +15,7 @@ import java.util.List;
 public class TestData {
 
     public static String BASE_URL = System.getProperty("url", "http://www.postimees.ee/v2");
+    public static ThreadLocal<Point> appLocation = new ThreadLocal<>();
 
     private static ThreadLocal<List<String>> collectedUrls = new ThreadLocal<>();
     private static int totalWithVideos = 0;
@@ -33,6 +39,36 @@ public class TestData {
             TestData.collectedUrls.set(new ArrayList<>());
         }
         TestData.collectedUrls.set(collectedUrls);
+    }
+
+    /**
+     * Sets application screen size
+     */
+    public static void setAppLocation(Device device) {
+        try {
+            appLocation.set(new Point(0, 0));
+            if (device.getDriver() instanceof IOSDriver) {
+                IOSDriver driver = ((IOSDriver) device.getDriver());
+                String originalContext = driver.getContext();
+                driver.context("NATIVE_APP");
+                appLocation.set(driver.findElement(By.xpath("//UIAWebView[1]")).getLocation());
+                driver.context(originalContext);
+            }
+        } catch (Exception ignored) {
+
+        }
+
+    }
+
+    /**
+     * Gets application size
+     */
+    public static Point getApplicationSize(Device device) {
+        if (appLocation.get() == null) {
+            setAppLocation(device);
+        }
+
+        return appLocation.get();
     }
 
     /**
