@@ -4,6 +4,7 @@ import com.fobsolutions.postimees.implementation.news.videos.VideoComponent;
 import io.appium.java_client.ios.IOSDriver;
 import io.cify.framework.core.Device;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -77,7 +78,7 @@ public class LeadMediaVideoMobile implements VideoComponent {
                 if (device.getDriver() instanceof IOSDriver) {
                     click(device, device.getDriver().findElement(jwPlayer));
                 } else {
-                    device.getDriver().findElement(jwPlayer).click();
+                    device.getDriver().findElement(jwPlayer).sendKeys(Keys.ENTER);
                 }
             } catch (Exception ignored) {
             }
