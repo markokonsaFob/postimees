@@ -26,6 +26,7 @@ public class InArticleVideoDesktop implements VideoComponent {
     private WebElement content;
 
     private By jwPlayer = By.className("jwplayer");
+    private By jwError = By.className("jw-error");
 
     private Device device;
 
@@ -39,7 +40,7 @@ public class InArticleVideoDesktop implements VideoComponent {
      */
     @Override
     public boolean haveVideo() {
-        return getPlayer() != null && getPlayer().isDisplayed();
+        return (getPlayer() != null && getPlayer().isDisplayed()) || haveError();
     }
 
     /**
@@ -49,7 +50,7 @@ public class InArticleVideoDesktop implements VideoComponent {
     public VideoState getState() {
         WebElement player = getPlayer();
 
-        if (player == null) {
+        if (player == null || haveError()) {
             return VideoState.NOTAVAILABLE;
         } else if (player.getAttribute("class").contains("jw-state-idle")) {
             return VideoState.IDLE;
@@ -79,6 +80,8 @@ public class InArticleVideoDesktop implements VideoComponent {
                 getPlayer().sendKeys(Keys.ENTER);
             }
             waitForStateToBe(this, device, VideoState.PLAYING, 30);
+        } else if (haveError()) {
+            waitForStateToBe(this, device, VideoState.PLAYING, 5);
         }
     }
 
@@ -92,6 +95,18 @@ public class InArticleVideoDesktop implements VideoComponent {
             return content.findElement(jwPlayer);
         } catch (NoSuchElementException ignored) {
             return null;
+        }
+    }
+
+    /**
+     * Checks if player have error
+     */
+    private boolean haveError() {
+        try {
+            device.getDriver().switchTo().defaultContent();
+            return content.findElement(jwError).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
         }
     }
 }

@@ -5,6 +5,21 @@
         "capability": "chrome",
         "browserName": "chrome",
         "version": "",
+        "url": "http://www.postimees.ee/",
+        "platform": "ANY"
+      },
+      {
+        "capability": "opera",
+        "browserName": "opera",
+        "version": "",
+        "url": "http://www.postimees.ee/",
+        "platform": "ANY"
+      },
+      {
+        "capability": "safari",
+        "browserName": "safari",
+        "version": "",
+        "url": "http://www.postimees.ee/",
         "platform": "ANY"
       }
     ]

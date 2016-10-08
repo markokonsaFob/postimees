@@ -17,8 +17,6 @@ import org.openqa.selenium.NotFoundException;
  */
 public class NewsSteps {
 
-    //private Device device = getIOSSimulator();
-
     @When("^user opens each article and checks for video$")
     public void userOpensEachArticleAndChecksForVideo() {
         Device device = DeviceManager.getInstance().getActiveDevice();
@@ -55,24 +53,4 @@ public class NewsSteps {
             throw new AssertionError("Video should be playing");
         }
     }
-/**
- @After public void close() {
- try {
- device.quit();
- } catch (Exception ignored) {
-
- }
- }
-
- private Device getIOSSimulator() {
- DesiredCapabilities caps = new DesiredCapabilities();
- caps.setCapability("capability", "iphone");
- caps.setCapability("deviceName", "iPhone 6");
- caps.setCapability("version", "9.3");
- caps.setCapability("remote", "http://0.0.0.0:4723/wd/hub");
- caps.setCapability("platform", "MAC");
- caps.setCapability("browserName", "safari");
- return new Device("simulator", DeviceCategory.BROWSER, caps);
- }
- */
 }

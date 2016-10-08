@@ -78,6 +78,7 @@ public class FacebookVideoMobile implements VideoComponent {
                     device.getDriver().get(getFrame().getAttribute("src"));
                 } else {
                     device.getDriver().switchTo().defaultContent();
+                    BrowserActions.scrollToElement(device, getFrame());
                     device.getDriver().switchTo().frame(getFrame());
                 }
             }

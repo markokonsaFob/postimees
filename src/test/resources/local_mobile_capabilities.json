@@ -2,28 +2,13 @@
   "set": {
     "browser": [
       {
-        "capability": "android",
-        "remote": "http://0.0.0.0:4723/wd/hub",
-        "platform": "Android",
-        "browserName": "chrome",
-        "version": "5.1.1",
-        "deviceName": "Android"
-      },
-      {
-        "capability": "iphone",
-        "remote": "http://0.0.0.0:4723/wd/hub",
-        "platform": "MAC",
-        "browserName": "safari",
-        "version": "9.3",
-        "deviceName": "iPhone 6"
-      },
-      {
         "capability": "ipad",
         "remote": "http://0.0.0.0:4723/wd/hub",
         "platform": "MAC",
         "browserName": "safari",
         "version": "9.3",
-        "deviceName": "iPad 2"
+        "deviceName": "Fob's iPad Pro",
+        "udid": "63bf0a7dcb2eb3dfd6a6ad7ff3dfa40bf901929b"
       }
     ]
   }

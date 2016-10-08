@@ -15,7 +15,7 @@ import java.util.List;
 public class TestData {
 
     public static String BASE_URL = System.getProperty("url", "http://www.postimees.ee/v2");
-    public static ThreadLocal<Point> appLocation = new ThreadLocal<>();
+    private static ThreadLocal<Point> appLocation = new ThreadLocal<>();
 
     private static ThreadLocal<List<String>> collectedUrls = new ThreadLocal<>();
     private static int totalWithVideos = 0;
@@ -63,7 +63,7 @@ public class TestData {
     /**
      * Gets application size
      */
-    public static Point getApplicationSize(Device device) {
+    static Point getApplicationSize(Device device) {
         if (appLocation.get() == null) {
             setAppLocation(device);
         }
@@ -111,6 +111,9 @@ public class TestData {
                 "http://elu24.postimees.ee/3818671/video-steve-o-murdis-peldikutrikki-tehes-molemad-jalad");
     }
 
+    /**
+     * Mobile example URL's
+     */
     public static List<String> getMobileMocked() {
         return Arrays.asList(
                 "http://m.postimees.ee/section/2277/3611563",

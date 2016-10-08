@@ -26,6 +26,7 @@ public class LeadMediaVideoDesktop implements VideoComponent {
     private WebElement leadMedia;
 
     private By jwPlayer = By.className("jwplayer");
+    private By jwError = By.className("jw-error");
 
     private Device device;
 
@@ -39,8 +40,8 @@ public class LeadMediaVideoDesktop implements VideoComponent {
      */
     @Override
     public boolean haveVideo() {
+        return (getPlayer() != null && getPlayer().isDisplayed()) || haveError();
 
-        return getPlayer() != null && getPlayer().isDisplayed();
     }
 
     /**
@@ -51,7 +52,7 @@ public class LeadMediaVideoDesktop implements VideoComponent {
 
         WebElement player = getPlayer();
 
-        if (player == null) {
+        if (player == null || haveError()) {
             return VideoState.NOTAVAILABLE;
         } else if (player.getAttribute("class").contains("jw-state-idle")) {
             return VideoState.IDLE;
@@ -80,6 +81,8 @@ public class LeadMediaVideoDesktop implements VideoComponent {
                 getPlayer().sendKeys(Keys.ENTER);
             }
             waitForStateToBe(this, device, VideoState.PLAYING, 30);
+        } else if (haveError()) {
+            waitForStateToBe(this, device, VideoState.PLAYING, 5);
         }
     }
 
@@ -93,6 +96,18 @@ public class LeadMediaVideoDesktop implements VideoComponent {
             return leadMedia.findElement(jwPlayer);
         } catch (NoSuchElementException ignored) {
             return null;
+        }
+    }
+
+    /**
+     * Checks if player have error
+     */
+    private boolean haveError() {
+        try {
+            device.getDriver().switchTo().defaultContent();
+            return leadMedia.findElement(jwError).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
         }
     }
 }
