@@ -9,6 +9,7 @@ import com.fobsolutions.postimees.implementation.news.videos.instagram.Instagram
 import com.fobsolutions.postimees.implementation.news.videos.leadmedia.LeadMediaVideoDesktop;
 import com.fobsolutions.postimees.implementation.news.videos.leadmedia.LeadMediaVideoMobile;
 import com.fobsolutions.postimees.implementation.news.videos.youtube.YouTubeVideo;
+import com.fobsolutions.postimees.utils.Advertisement;
 import com.fobsolutions.postimees.utils.Constants;
 import com.fobsolutions.postimees.utils.TestData;
 import com.fobsolutions.postimees.utils.VideoResult;
@@ -88,6 +89,11 @@ public class NewsPage extends PageObjects {
             System.out.println(Constants.ANSI_GREEN + "Opening article with URL " + url + Constants.ANSI_GREEN);
             device.getDriver().get(url);
             VideoComponent component = getVideo();
+            if(Advertisement.isAdDisplayed(device)){
+                device.getDriver().get(url);
+                component = getVideo();
+            }
+
             playVideo(component);
             addResult(url, component);
         } catch (Exception ignored) {
