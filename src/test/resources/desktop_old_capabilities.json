@@ -4,7 +4,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 7 Firefox 49",
+        "name": "Windows 7 Firefox 49 [old]",
         "platform": "Windows 7",
         "url": "http://www.postimees.ee/",
         "version": "49.0"
@@ -12,7 +12,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 7 Firefox 51",
+        "name": "Windows 7 Firefox 51 [old]",
         "platform": "Windows 7",
         "url": "http://www.postimees.ee/",
         "version": "51.0"
@@ -20,7 +20,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 7 Firefox 52",
+        "name": "Windows 7 Firefox 52 [old]",
         "platform": "Windows 7",
         "url": "http://www.postimees.ee/",
         "version": "52.0"
@@ -28,7 +28,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 8.1 Firefox 49",
+        "name": "Windows 8.1 Firefox 49 [old]",
         "platform": "Windows 8.1",
         "url": "http://www.postimees.ee/",
         "version": "49.0"
@@ -36,7 +36,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 8.1 Firefox 52",
+        "name": "Windows 8.1 Firefox 52 [old]",
         "platform": "Windows 8.1",
         "url": "http://www.postimees.ee/",
         "version": "52.0"
@@ -44,7 +44,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 8.1 Firefox 51",
+        "name": "Windows 8.1 Firefox 51 [old]",
         "platform": "Windows 8.1",
         "url": "http://www.postimees.ee/",
         "version": "51.0"
@@ -52,7 +52,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 10 Firefox 49",
+        "name": "Windows 10 Firefox 49 [old]",
         "platform": "Windows 10",
         "url": "http://www.postimees.ee/",
         "version": "49.0"
@@ -60,7 +60,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 10 Firefox 52",
+        "name": "Windows 10 Firefox 52 [old]",
         "platform": "Windows 10",
         "url": "http://www.postimees.ee/",
         "version": "52.0"
@@ -68,7 +68,7 @@
       {
         "capability": "chrome",
         "browserName": "chrome",
-        "name": "Windows 10 Firefox 51",
+        "name": "Windows 10 Firefox 51 [old]",
         "platform": "Windows 10",
         "url": "http://www.postimees.ee/",
         "version": "51.0"
@@ -76,7 +76,7 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "name": "Windows 7 Firefox 47",
+        "name": "Windows 7 Firefox 47 [old]",
         "platform": "Windows 7",
         "url": "http://www.postimees.ee/",
         "version": "47.0"
@@ -84,7 +84,7 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "name": "Windows 7 Firefox 48",
+        "name": "Windows 7 Firefox 48 [old]",
         "platform": "Windows 7",
         "url": "http://www.postimees.ee/",
         "version": "48.0"
@@ -92,7 +92,7 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "name": "Windows 8.1 Firefox 47",
+        "name": "Windows 8.1 Firefox 47 [old]",
         "platform": "Windows 8.1",
         "url": "http://www.postimees.ee/",
         "version": "47.0"
@@ -100,7 +100,7 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "name": "Windows 8.1 Firefox 48",
+        "name": "Windows 8.1 Firefox 48 [old]",
         "platform": "Windows 8.1",
         "url": "http://www.postimees.ee/",
         "version": "48.0"
@@ -108,7 +108,7 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "name": "Windows 10 Firefox 47",
+        "name": "Windows 10 Firefox 47 [old]",
         "platform": "Windows 10",
         "url": "http://www.postimees.ee/",
         "version": "47.0"
@@ -116,7 +116,7 @@
       {
         "capability": "firefox",
         "browserName": "firefox",
-        "name": "Windows 10 Firefox 48",
+        "name": "Windows 10 Firefox 48 [old]",
         "platform": "Windows 10",
         "url": "http://www.postimees.ee/",
         "version": "48.0"
@@ -124,7 +124,7 @@
       {
         "capability": "safari",
         "browserName": "safari",
-        "name": "OS X 10.11 Safari 9.0",
+        "name": "OS X 10.11 Safari 9.0 [old]",
         "platform": "OS X 10.11",
         "url": "http://www.postimees.ee/",
         "version": "9.0"
@@ -132,7 +132,7 @@
       {
         "capability": "internetExplorer",
         "browserName": "internet explorer",
-        "name": "Windows 8.1 IE 11",
+        "name": "Windows 8.1 IE 11 [old]",
         "platform": "Windows 8.1",
         "url": "http://www.postimees.ee/",
         "version": "11.0"
@@ -140,7 +140,7 @@
       {
         "capability": "edge",
         "browserName": "MicrosoftEdge",
-        "name": "Windows 10 Edge 13.10586",
+        "name": "Windows 10 Edge 13.10586 [old]",
         "platform": "Windows 10",
         "url": "http://www.postimees.ee/",
         "version": "13.10586"

@@ -2,13 +2,12 @@
   "set": {
     "browser": [
       {
-        "capability": "ipad",
+        "capability": "Android",
         "remote": "http://0.0.0.0:4723/wd/hub",
-        "platform": "MAC",
-        "browserName": "safari",
-        "version": "9.3",
-        "deviceName": "Fob's iPad Pro",
-        "udid": "63bf0a7dcb2eb3dfd6a6ad7ff3dfa40bf901929b"
+        "platform": "Android",
+        "browserName": "chrome",
+        "version": "5.0",
+        "deviceName": "Samsung Galaxy Tab S"
       }
     ]
   }
