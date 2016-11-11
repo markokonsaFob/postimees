@@ -7,11 +7,17 @@ import io.cify.framework.core.Device;
  */
 public class VideoResult {
 
+    public enum Result {
+        SUCCESS,
+        FAIL
+    }
+
     private Result result;
     private String message;
     private String url;
     private String type;
     private Device device;
+    private String sauceLabsUrl;
 
     public VideoResult(String url, boolean condition, String message, String type, Device device) {
 
@@ -24,10 +30,19 @@ public class VideoResult {
         this.url = url;
         this.type = type;
         this.device = device;
+        this.sauceLabsUrl = TestHelper.getPublicJobLink(device);
     }
 
     public Result getResult() {
         return result;
+    }
+
+    public Device getDevice() {
+        return device;
+    }
+
+    public String getSauceLabsUrl() {
+        return sauceLabsUrl;
     }
 
     @Override
@@ -41,10 +56,5 @@ public class VideoResult {
 
     private String deviceToString() {
         return " device: [" + device.getCapabilities().toString() + "]";
-    }
-
-    public enum Result {
-        SUCCESS,
-        FAIL
     }
 }

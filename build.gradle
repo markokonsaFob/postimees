@@ -29,40 +29,25 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
     compile 'net.masterthought:cucumber-reporting:2.8.0'
     compile group: 'info.cukes', name: 'cucumber-java', version: '1.2.4'
+    compile 'com.saucelabs:saucerest:1.0.35'
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'io.cify', name: 'cify-framework', version: '1.0.0'
 }
 
-// Generate reports from JSON results
-task generateReport(type: ReportingTask)
-
 import net.masterthought.cucumber.Configuration
 import net.masterthought.cucumber.ReportBuilder
 
-class ReportingTask extends DefaultTask {
-
-    @TaskAction
-    void exec() {
-
-        File reportOutputDirectory = new File("build/cify/reports");
-        List<String> jsonFiles = new ArrayList<>();
-        def reports = project.fileTree(dir: 'build/cify/reports/json').include '*.json'
-        reports.each { File file ->
-            jsonFiles.add(file.getPath())
-        }
-
-        String jenkinsBasePath = "";
-        String buildNumber = "1";
-        String projectName = "cify-examples";
-        boolean skippedFails = true;
-        boolean pendingFails = false;
-        boolean undefinedFails = true;
-        boolean runWithJenkins = false;
-        boolean parallelTesting = false;
-
-        Configuration configuration = new Configuration(reportOutputDirectory, projectName);
-
-        ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
-        reportBuilder.generateReports();
+// Generate reports from JSON results
+tasks.cucumber.doLast() {
+    File reportOutputDirectory = new File("build/cify/reports");
+    List<String> jsonFiles = new ArrayList<>();
+    def reports = project.fileTree(dir: 'build/cify/reports/json').include '*.json'
+    reports.each { File file ->
+        jsonFiles.add(file.getPath())
     }
+    String projectName = "Postimees DEMO"
+
+    Configuration configuration = new Configuration(reportOutputDirectory, projectName)
+    ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration)
+    reportBuilder.generateReports()
 }
